@@ -67,6 +67,7 @@ items_data.each do |key, item|
   item['tags'].each do |tag_name|
     tag = Tag.find_or_create_by(name: tag_name)
     ItemTag.create(item: created_item, tag: tag)
+    puts "Created tag: #{tag_name} for item: #{created_item.name}"
   end
 end
 
