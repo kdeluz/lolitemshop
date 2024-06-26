@@ -7,10 +7,27 @@
     </div>
     <div class="column">
       <h1 class="title is-2">Items</h1>
+
+      <!-- Sorting Dropdown -->
+      <div class="field">
+        <label class="label">Sort by</label>
+        <div class="control">
+          <div class="select">
+            <select id="sort-dropdown" onchange="sortItems()">
+              <option value="">Default</option>
+              <option value="alphabetical" <%= 'selected' if @sort == 'alphabetical' %>>Alphabetically</option>
+              <option value="gold_ascending" <%= 'selected' if @sort == 'gold_ascending' %>>Gold Ascending</option>
+              <option value="gold_descending" <%= 'selected' if @sort == 'gold_descending' %>>Gold Descending</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
       <% if params[:tag] %>
-        <p>Filtering by tag: <%= params[:tag] %></p>
+        <p><strong>Filtering by tag:</strong> <%= params[:tag] %></p>
       <% end %>
-      <p>Number of items: <%= @items.count %></p>
+      <p><strong>Number of items:</strong> <%= @items.count %></p>
+
       <div class="columns is-multiline">
         <% @items.each do |item| %>
           <div class="column is-one-third">
@@ -25,3 +42,12 @@
     </div>
   </div>
 </div>
+
+<script>
+  function sortItems() {
+    const sortValue = document.getElementById('sort-dropdown').value;
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.set('sort', sortValue);
+    window.location.search = urlParams.toString();
+  }
+</script>

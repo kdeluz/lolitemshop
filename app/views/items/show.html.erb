@@ -11,7 +11,9 @@
         <%= raw @item.description %> <!-- raw makes it use the html given in the json request -->
       </div>
       <p><strong>Cost:</strong> <%= @item.gold.total %> gold (Base: <%= @item.gold.base %>, Sell: <%= @item.gold.sell %>)</p>
-      <p><strong>Tags:</strong> <%= @item.tags.map(&:name).join(', ') %></p>
+      <p><strong>Tags:</strong> 
+        <%= @item.tags.map { |tag| link_to tag.name, items_path(tag: tag.name) }.join(', ').html_safe %>
+      </p>
       
       <!-- Stats Section -->
       <% if @item.stat %>
