@@ -1,0 +1,141 @@
+<%= stylesheet_link_tag 'bulma.min', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class="container">
+  <div class="columns">
+    <div class="column is-one-quarter">
+      <%= image_tag @item.image, class: "item-image" %>
+    </div>
+    <div class="column">
+      <h1 class="title is-2"><%= @item.name %></h1>
+      <div class="content">
+        <%= raw @item.description %> <!-- raw makes it use the html given in the json request -->
+      </div>
+      <p><strong>Cost:</strong> <%= @item.gold.total %> gold (Base: <%= @item.gold.base %>, Sell: <%= @item.gold.sell %>)</p>
+      <p><strong>Tags:</strong> <%= @item.tags.map(&:name).join(', ') %></p>
+      
+      <!-- Stats Section -->
+      <% if @item.stat %>
+        <div class="box">
+          <h2 class="title is-4">Stats</h2>
+          <div class="columns is-multiline">
+            <% if @item.stat.flat_hp_pool_mod > 0 %>
+              <div class="column is-half">
+                <strong>HP:</strong> <%= @item.stat.flat_hp_pool_mod %>
+              </div>
+            <% end %>
+            <% if @item.stat.flat_mp_pool_mod > 0 %>
+              <div class="column is-half">
+                <strong>MP:</strong> <%= @item.stat.flat_mp_pool_mod %>
+              </div>
+            <% end %>
+            <% if @item.stat.flat_hp_regen_mod > 0 %>
+              <div class="column is-half">
+                <strong>HP Regen:</strong> <%= @item.stat.flat_hp_regen_mod %>
+              </div>
+            <% end %>
+            <% if @item.stat.flat_mp_regen_mod > 0 %>
+              <div class="column is-half">
+                <strong>MP Regen:</strong> <%= @item.stat.flat_mp_regen_mod %>
+              </div>
+            <% end %>
+            <% if @item.stat.flat_armor_mod > 0 %>
+              <div class="column is-half">
+                <strong>Armor:</strong> <%= @item.stat.flat_armor_mod %>
+              </div>
+            <% end %>
+            <% if @item.stat.flat_magic_resist_mod > 0 %>
+              <div class="column is-half">
+                <strong>Magic Resist:</strong> <%= @item.stat.flat_magic_resist_mod %>
+              </div>
+            <% end %>
+            <% if @item.stat.flat_attack_damage_mod > 0 %>
+              <div class="column is-half">
+                <strong>Attack Damage:</strong> <%= @item.stat.flat_attack_damage_mod %>
+              </div>
+            <% end %>
+            <% if @item.stat.flat_ability_power_mod > 0 %>
+              <div class="column is-half">
+                <strong>Ability Power:</strong> <%= @item.stat.flat_ability_power_mod %>
+              </div>
+            <% end %>
+            <% if @item.stat.flat_movement_speed_mod > 0 %>
+              <div class="column is-half">
+                <strong>Movement Speed:</strong> <%= @item.stat.flat_movement_speed_mod %>
+              </div>
+            <% end %>
+            <% if @item.stat.percent_hp_pool_mod > 0 %>
+              <div class="column is-half">
+                <strong>HP %:</strong> <%= @item.stat.percent_hp_pool_mod %>
+              </div>
+            <% end %>
+            <% if @item.stat.percent_mp_pool_mod > 0 %>
+              <div class="column is-half">
+                <strong>MP %:</strong> <%= @item.stat.percent_mp_pool_mod %>
+              </div>
+            <% end %>
+            <% if @item.stat.percent_hp_regen_mod > 0 %>
+              <div class="column is-half">
+                <strong>HP Regen %:</strong> <%= @item.stat.percent_hp_regen_mod %>
+              </div>
+            <% end %>
+            <% if @item.stat.percent_mp_regen_mod > 0 %>
+              <div class="column is-half">
+                <strong>MP Regen %:</strong> <%= @item.stat.percent_mp_regen_mod %>
+              </div>
+            <% end %>
+            <% if @item.stat.percent_armor_mod > 0 %>
+              <div class="column is-half">
+                <strong>Armor %:</strong> <%= @item.stat.percent_armor_mod %>
+              </div>
+            <% end %>
+            <% if @item.stat.percent_magic_resist_mod > 0 %>
+              <div class="column is-half">
+                <strong>Magic Resist %:</strong> <%= @item.stat.percent_magic_resist_mod %>
+              </div>
+            <% end %>
+            <% if @item.stat.percent_attack_damage_mod > 0 %>
+              <div class="column is-half">
+                <strong>Attack Damage %:</strong> <%= @item.stat.percent_attack_damage_mod %>
+              </div>
+            <% end %>
+            <% if @item.stat.percent_ability_power_mod > 0 %>
+              <div class="column is-half">
+                <strong>Ability Power %:</strong> <%= @item.stat.percent_ability_power_mod %>
+              </div>
+            <% end %>
+            <% if @item.stat.percent_movement_speed_mod > 0 %>
+              <div class="column is-half">
+                <strong>Movement Speed %:</strong> <%= @item.stat.percent_movement_speed_mod %>
+              </div>
+            <% end %>
+            <% if @item.stat.flat_critical_strike_chance_mod > 0 %>
+              <div class="column is-half">
+                <strong>Critical Strike Chance:</strong> <%= @item.stat.flat_critical_strike_chance_mod %>
+              </div>
+            <% end %>
+            <% if @item.stat.flat_attack_speed_mod > 0 %>
+              <div class="column is-half">
+                <strong>Attack Speed:</strong> <%= @item.stat.flat_attack_speed_mod %>
+              </div>
+            <% end %>
+            <% if @item.stat.percent_attack_speed_mod > 0 %>
+              <div class="column is-half">
+                <strong>Attack Speed %:</strong> <%= @item.stat.percent_attack_speed_mod %>
+              </div>
+            <% end %>
+            <% if @item.stat.flat_life_steal_mod > 0 %>
+              <div class="column is-half">
+                <strong>Life Steal:</strong> <%= @item.stat.flat_life_steal_mod %>
+              </div>
+            <% end %>
+            <% if @item.stat.percent_life_steal_mod > 0 %>
+              <div class="column is-half">
+                <strong>Life Steal %:</strong> <%= @item.stat.percent_life_steal_mod %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
