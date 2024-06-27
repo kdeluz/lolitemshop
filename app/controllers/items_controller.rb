@@ -2,19 +2,18 @@ class ItemsController < ApplicationController
     def index
       @tags = Tag.all
       @sort = params[:sort]
+      @search = params[:search]
+      @tag_filter = params[:tag]
   
-      if params[:tag]
-        logger.debug "Filtering items by tag: #{params[:tag]}"
-        tag = Tag.find_by(name: params[:tag])
-        if tag
-          @items = tag.items.includes(:gold, :stat, :tags)
-          logger.debug "Found #{@items.count} items for tag: #{params[:tag]}"
-        else
-          @items = Item.none
-          logger.debug "No items found for tag: #{params[:tag]}"
-        end
-      else
-        @items = Item.includes(:gold, :stat, :tags).all
+      @items = Item.includes(:gold, :stat, :tags)
+  
+      if @tag_filter.present?
+        tag = Tag.find_by(name: @tag_filter)
+        @items = tag.items.includes(:gold, :stat, :tags) if tag
+      end
+  
+      if @search.present?
+        @items = @items.where('LOWER(items.name) LIKE ?', "%#{@search.downcase}%")
       end
   
       @items = sort_items(@items, @sort)
