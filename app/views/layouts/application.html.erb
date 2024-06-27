@@ -1,17 +1,67 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Lolitemshop</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Item Shop</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="<%= root_path %>">
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="<%= root_path %>">
+            Home
+          </a>
+
+          <a class="navbar-item" href="<%= about_path %>">
+            About
+          </a>
+
+          <a class="navbar-item" href="<%= items_path %>">
+            Items
+          </a>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <form action="<%= items_path %>" method="get" class="field has-addons">
+              <div class="control">
+                <input class="input" type="text" name="search" placeholder="Search items...">
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select name="tag">
+                    <option value="">All Tags</option>
+                    <% Tag.all.each do |tag| %>
+                      <option value="<%= tag.name %>"><%= tag.name %></option>
+                    <% end %>
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <button type="submit" class="button is-primary">
+                  Search
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nav>
+
     <%= yield %>
   </body>
 </html>
