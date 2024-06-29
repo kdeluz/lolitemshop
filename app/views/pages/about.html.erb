@@ -1,7 +1,63 @@
 <%= stylesheet_link_tag 'bulma.min', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class="container">
-  <h1 class="title is-2">About</h1>
-  <p>This application uses data from the League of Legends API to showcase all the items in the game.</p>
-  <p>Data Source: <a href="https://ddragon.leagueoflegends.com/cdn/14.13.1/data/en_US/item.json">League of Legends API</a></p>
+  <section class="hero is-info is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          About This Project
+        </h1>
+        <h2 class="subtitle">
+            <p>This application uses data from the League of Legends API to showcase all the items in the game.</p>
+            <p>Data Source: <a href="https://ddragon.leagueoflegends.com/cdn/14.13.1/data/en_US/item.json">League of Legends API</a></p>
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-3">About Me</h2>
+      <div class="columns">
+        <div class="column is-one-third">
+          <figure class="image is-fullwidth">
+            <%= image_tag 'profile.jpg', alt: 'Profile Photo', style: 'width: 100%; height: auto;' %>
+          </figure>
+        </div>
+        <div class="column">
+          <div class="content">
+            <p>Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, </p>
+            <p>Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, Filler Text, </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-3">ERD (Entity-Relationship Diagram)</h2>
+      <div class="content">
+        <p>The ERD for this project is as seen below:</p>
+        <%= image_tag 'erd.jpg', alt: 'ERD', class: 'image' %>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-3">Project Details</h2>
+      <div class="content">
+        <p>This project was developed solely by me, as part of the "Agile Full Stack Web Development" course. The projectgoal is to demonstrate the practical use and application of full stack web development, including:</p>
+        <ul>
+          <li>Front-end development with HTML, CSS, and JavaScript</li>
+          <li>Back-end development with Ruby on Rails</li>
+          <li>Database management and ActiveRecord</li>
+          <li>Integration of third-party APIs</li>
+          <li>Styling design using Bulma.css</li>
+        </ul>
+        <p>This project is solely only for educational purposes. No copyright is claimed upon any of the content you see before you. Except this little easter egg if you kept reading ooooooo scary ghost.</p>
+      </div>
+    </div>
+  </section>
 </div>

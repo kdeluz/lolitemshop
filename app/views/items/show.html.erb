@@ -3,7 +3,9 @@
 <div class="container">
   <div class="columns">
     <div class="column is-one-quarter">
-      <%= image_tag @item.image, class: "item-image" %>
+        <figure class="image is-fullwidth">
+            <%= image_tag @item.image, class: "item-image" %>
+        </figure>
     </div>
     <div class="column">
       <h1 class="title is-2"><%= @item.name %></h1>
