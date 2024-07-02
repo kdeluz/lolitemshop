@@ -8,9 +8,6 @@ This is a Ruby on Rails project that I made for my Agile Full Stack Web Developm
 - [ERD](#erd)
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 - [Acknowledgements](#acknowledgements)
 
 ## Description
