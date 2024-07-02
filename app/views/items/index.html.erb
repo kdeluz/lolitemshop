@@ -28,6 +28,9 @@
       <% end %>
       <p><strong>Number of items:</strong> <%= @items.count %></p>
 
+      <!-- Pagination Links -->
+      <%= render 'shared/pagination', collection: @items %>
+
       <div class="columns is-multiline">
         <% @items.each do |item| %>
           <div class="column is-one-third">

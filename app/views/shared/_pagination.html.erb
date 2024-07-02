@@ -1,0 +1,31 @@
+<% if collection.total_pages > 1 %>
+  <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+    <% if collection.prev_page %>
+      <%= link_to 'Previous', url_for(page: collection.prev_page), class: 'pagination-previous' %>
+    <% end %>
+    <ul class="pagination-list">
+      <% if collection.current_page > 4 %>
+        <li><%= link_to 1, url_for(page: 1), class: 'pagination-link', aria: { label: "Goto page 1" } %></li>
+        <li><span class="pagination-ellipsis">&hellip;</span></li>
+      <% end %>
+
+      <% (1..collection.total_pages).each do |page| %>
+        <% if page == collection.current_page || (page - collection.current_page).abs <= 2 %>
+          <% if page == collection.current_page %>
+            <li><a class="pagination-link is-current" aria-label="Page <%= page %>" aria-current="page"><%= page %></a></li>
+          <% else %>
+            <li><%= link_to page, url_for(page: page), class: 'pagination-link', aria: { label: "Goto page #{page}" } %></li>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <% if collection.current_page < collection.total_pages - 3 %>
+        <li><span class="pagination-ellipsis">&hellip;</span></li>
+        <li><%= link_to collection.total_pages, url_for(page: collection.total_pages), class: 'pagination-link', aria: { label: "Goto page #{collection.total_pages}" } %></li>
+      <% end %>
+    </ul>
+    <% if collection.next_page %>
+      <%= link_to 'Next page', url_for(page: collection.next_page), class: 'pagination-next' %>
+    <% end %>
+  </nav>
+<% end %>

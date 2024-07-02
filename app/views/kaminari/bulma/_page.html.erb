@@ -1,0 +1,9 @@
+<% if page.current? %>
+  <li>
+    <a class="pagination-link is-current"><%= page.number %></a>
+  </li>
+<% else %>
+  <li>
+    <%= link_to page.number, page.url, class: 'pagination-link' %>
+  </li>
+<% end %>

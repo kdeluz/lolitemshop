@@ -1,0 +1,14 @@
+<%== paginator.render do %>
+    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+      <%== first_page_tag unless current_page.first? %>
+      <%== prev_page_tag unless current_page.first? %>
+      <ul class="pagination-list">
+        <%== each_page do |page| %>
+          <%== page %>
+        <% end %>
+      </ul>
+      <%== next_page_tag unless current_page.last? %>
+      <%== last_page_tag unless current_page.last? %>
+    </nav>
+  <% end %>
+  
