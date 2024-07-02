@@ -16,7 +16,7 @@ This project pulls data from the League of Legends API and displays all availabl
 
 ## ERD
 
-![ERD](assets/images/erd.jpg)
+![ERD](app/assets/images/erd.jpg)
 
 ## Features
 
