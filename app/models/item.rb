@@ -5,10 +5,9 @@ class Item < ApplicationRecord
     has_many :tags, through: :item_tags
   
     accepts_nested_attributes_for :gold, :stat, :tags
-    
+
     validates :name, presence: true, uniqueness: true
     validates :description, presence: true
-    validates :plaintext, presence: true
     validates :image, presence: true
   end
   
