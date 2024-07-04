@@ -10,6 +10,8 @@
 require 'open-uri'
 require 'json'
 
+# This helps with clearing existing data from the database, before seeding new data.
+# Helpful for not including data that already exists in the database.
 Item.destroy_all
 Stat.destroy_all
 Gold.destroy_all
@@ -28,6 +30,8 @@ items_data.each do |key, item|
     image: "https://ddragon.leagueoflegends.com/cdn/14.13.1/img/item/#{item['image']['full']}"
   )
 
+  # This method in ActiveRecord is used to check if an object has been saved to the database.
+  # This means that the seeds.rb will only attempt to create the associated records below if the main Item was recorded and saved to the database.
   if created_item.persisted?
     created_item.create_gold(
       total: item['gold']['total'],
@@ -36,6 +40,7 @@ items_data.each do |key, item|
       purchasable: item['gold']['purchasable']
     )
 
+    # Same as persisted, if there are any stats present within the item, it will save it. Otherwise, it will not include it at all.
     stats = item['stats']
     if stats.present?
       created_item.create_stat(
