@@ -20,12 +20,12 @@ This project pulls data from the League of Legends API and displays all availabl
 
 ## Features
 
-- Fetch and display League of Legends items from the the Riot Games API.
+- Fetch and display League of Legends items from the Riot Games API.
 - Paginated items with Kaminari, styled with Bulma CSS.
 - Filter items by tags.
 - Sort items alphabetically and by their cost in gold.
 - Search items with a search bar, along with the respective tag.
-- Ytem pages showing stats and attributes.
+- Item pages showing stats and attributes.
 - Responsive design using Bulma CSS.
 
 ## Installation
@@ -48,7 +48,6 @@ This project pulls data from the League of Legends API and displays all availabl
 3. Set up and migrate the database:
 
    ```sh
-   rails db:create
    rails db:migrate
    rails db:seed
    ```
