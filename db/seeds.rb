@@ -22,10 +22,15 @@ api_key = 'REMOVED_KEY'
 url = "https://ddragon.leagueoflegends.com/cdn/14.13.1/data/en_US/item.json?api_key=#{api_key}"
 items_data = JSON.parse(URI.open(url).read)['data']
 
+# This method is used to sanitize the description of non-essential tags.
+def sanitize_description(description)
+  description.gsub(/<mainText>|<\/mainText>|<stats>|<\/stats>|<attention>|<\/attention>/, '')
+end
+
 items_data.each do |key, item|
   created_item = Item.create(
     name: item['name'],
-    description: item['description'],
+    description: sanitize_description(item['description']),
     plaintext: item['plaintext'],
     image: "https://ddragon.leagueoflegends.com/cdn/14.13.1/img/item/#{item['image']['full']}"
   )

@@ -3,14 +3,14 @@
 <div class="container">
   <div class="columns">
     <div class="column is-one-quarter">
-        <figure class="image is-fullwidth">
-            <%= image_tag @item.image, class: "item-image" %>
-        </figure>
+      <figure class="image is-fullwidth">
+        <%= image_tag @item.image, class: "item-image", alt: @item.name %>
+      </figure>
     </div>
     <div class="column">
       <h1 class="title is-2"><%= @item.name %></h1>
       <div class="content">
-        <%= raw @item.description %> <!-- raw makes it use the html given in the json request -->
+        <%= raw @item.description %>
       </div>
       <p><strong>Cost:</strong> <%= @item.gold.total %> gold (Base: <%= @item.gold.base %>, Sell: <%= @item.gold.sell %>)</p>
       <p><strong>Tags:</strong> 

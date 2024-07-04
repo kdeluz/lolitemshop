@@ -1,5 +1,5 @@
 <% if collection.total_pages > 1 %>
-  <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+  <nav class="pagination is-centered" aria-label="pagination">
     <% if collection.prev_page %>
       <%= link_to 'Previous', url_for(page: collection.prev_page), class: 'pagination-previous' %>
     <% end %>
