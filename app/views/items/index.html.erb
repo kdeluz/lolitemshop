@@ -8,7 +8,7 @@
     <div class="column">
       <h1 class="title is-2">Items</h1>
 
-      <!-- Sorting Dropdown -->
+      <!-- Sorting Dropdown Menu -->
       <div class="field">
         <label class="label">Sort by</label>
         <div class="control">
@@ -28,7 +28,7 @@
       <% end %>
       <p><strong>Number of items:</strong> <%= @items.count %></p>
 
-      <!-- Pagination Links -->
+      <!-- Pagination -->
       <%= render 'shared/pagination', collection: @items %>
 
       <div class="columns is-multiline">
@@ -37,7 +37,7 @@
             <div class="box">
               <h2 class="title is-4"><%= link_to item.name, item_path(item) %></h2>
               <p><%= raw item.plaintext %></p> <!-- Use raw here -->
-              <%= image_tag item.image, class: "item-image" %>
+              <%= image_tag item.image, alt: item.name, class: "item-image" %>
             </div>
           </div>
         <% end %>
@@ -46,6 +46,7 @@
   </div>
 </div>
 
+<!-- Script for sorting -->
 <script>
   function sortItems() {
     const sortValue = document.getElementById('sort-dropdown').value;
