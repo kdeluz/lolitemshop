@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
         @items = @items.where('LOWER(items.name) LIKE ?', "%#{@search.downcase}%")
       end
   
-      @items = sort_items(@items, @sort).page(params[:page]).per(21)
+      @items = sort_items(@items, @sort).page(params[:page]).per(24)
     end
   
     def show
