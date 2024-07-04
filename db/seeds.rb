@@ -24,7 +24,7 @@ items_data = JSON.parse(URI.open(url).read)['data']
 
 # This method is used to sanitize the description of non-essential tags.
 def sanitize_description(description)
-  description.gsub(/<mainText>|<\/mainText>|<stats>|<\/stats>|<attention>|<\/attention>/, '')
+  description.gsub(/<mainText>|<\/mainText>|<stats>|<\/stats>|<attention>|<\/attention>|<li>|<\/li>|<passive>|<\/passive>|<rules>|<\/rules>/, '')
 end
 
 items_data.each do |key, item|
